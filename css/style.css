@@ -1,0 +1,253 @@
+/*
+    Variáveis:          Definição das variáveis de cores padrão do site
+*/
+
+:root{
+    --main-color: #407bff;
+    --link-color: #666;
+    --text1: #999;
+    --highlight-text: #333;
+    --input-text: #555;
+    --white-color: #fff;
+    --points-list: #ccc;
+    --line-input: #d9d9d9
+}
+
+
+/*
+    Fontes:             Definição das fontes padrão do site
+*/
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/Poppins-Medium.ttf');
+}
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/Poppins-Bold.ttf');
+}
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/Poppins-SemiBold.ttf');
+}
+
+
+/*
+    Zerar estilos     =     Modificar o padrão pré existente do site, pelo que será definido abaixo
+*/
+
+* {                         /* O * é chamado de reservado pq ele define um estilo no projeto todo */
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;                               /* Definição da ALTURA padrão no body e html*/
+    font-family: Poppins-Regular, sans-serif;   /* Definição da FONTE padrão Poppins-Regular e caso não encontre essa, usa a sans-serif*/
+} 
+
+ul, li {           /* Aplicando o zerar estilo na lista, remove o estilo padrão, para que seja criado/definido outro */
+    margin: 0;
+    list-style-type: none;
+}
+
+input, button {           
+    outline: none !important;
+    border: none;
+}
+
+button:hover {           /* Quando o cursor do mouse passar por cima do botão, o ícone muda de seta pra mão*/
+    cursor: pointer;
+}
+
+
+/*
+    Utilitários   =  Utilização dos textos e imagens que foram definidos no html
+*/
+
+.text1 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: var(--text1);
+    line-height: 1.5;    /* ALTURA da linha */
+}
+
+.text2 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    color: var(--main-color);
+    line-height: 1.5;    /* ALTURA da linha */
+}
+
+.margin-bottom-35 {
+    margin-bottom: 35px;
+}
+
+.margin-top-35 {
+    margin-top: 35px;
+}
+
+.margin-bottom-8 {
+    margin-bottom: 8px;
+}
+
+.margin-top-8 {
+    margin-top: 8px;
+}
+
+.margin-left-50 {
+    margin-left:50px;
+}
+
+
+/*
+    Login
+*/
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Inicio da configuração do nome FAÇA O LOGIN */
+.container-login {
+    width: 100%;
+    min-height: 100vh;    /* Ocupação de toda altura da tela */
+    display: flex;     
+    flex-wrap: wrap;      /* Esse e o de cima é pra se caso o conteúdo ultrapasse o limite da tela, o conteúdo não quebra, ele vai pra baixo */
+    justify-content: center;
+    align-items: center;  /* Alinhamento do conteúdo ao centro */
+    padding: 15px;        /* Margem interna de 15px dos demais elementos */
+    background-color: var(--white-color);  
+}
+
+.wrap-Login {
+    width: 370px;
+    margin-right: 50px;
+    background-color: var(--white-color);
+}
+
+
+/*
+    Formulário
+*/
+
+.login-form {
+    width: 100%;
+}
+
+.login-form-title {    /* Estilização do título 'Faça Login' */
+    display: block;
+    font-family: Poppins-Bold;
+    font-size: 39px;
+    color: var(--highlight-text);
+    line-height: 1.2;
+    text-align: center;
+}
+/* FIM da configuração do nome FAÇA O LOGIN */
+
+
+/*
+    Input    =     Estilização do estilo dos campos de preenchimento Email e senha
+*/
+
+.wrap-input {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid var(--line-input);
+}
+
+.input-form {
+    font-family: Poppins-SemiBold;
+    font-size: 18px;
+    color: var(--input-text);
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 52px;             /* Altura da linha' */
+    background: transparent;   /* cor de fundo' */
+    padding: 0 5px         /* 0px no topo e embaixo. 5px na direita e na esquerda da linha */
+}
+
+.focus-input-form {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.focus-input-form::before {   /* Before é um pseudo elemento do css, onde temos a possibilidade de colocar estilos antes e depois da chamada do elemento focus-input-before, sem precisar criar um elemento novo pra poder estilizar*/
+    content:"";     /* conteudo vazio */
+    display:block;
+    position:absolute;
+    bottom:-2px;
+    left: 0;
+    width: 0;              /*Posição inicial do preenchimento da linha */
+    height: 2px;           /* Cresce do mesmo tamanho da linha de cima ( da tela ) */
+    transition: all 0.4s;   /* Faz o efeito da transição da animação no tempo de 0.4 segundos pra ir do inicio ao final da linha  */
+    background-color: var(--main-color);
+}
+
+.focus-input-form::after {
+    font-family: Poppins-Medium;
+    font-size: 18px;
+    color: var(--text1);
+    line-height: 1.2;
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    padding: 5px;       /* Espaçamento interno */
+    transition: all 0.4s; 
+}
+
+.input-form:focus + .focus-input-form::after {   /* Funcionamento interativo de subir e descer do nome EMAIL e SENHA nas linhas do formuláro */
+    top: -20px; 
+    font-size: 15px;
+}
+
+.input-form:focus + .focus-input-form::before {   /* Funcionamento interativo de subir e descer do nome EMAIL e SENHA nas linhas do formuláro */
+    width: 100%;
+}
+
+.has-val.input-form:focus + .focus-input-form::after {   /* Funcionamento para manter o título do campo acima da linha se estiver preenchida */
+    top: -20px; 
+    font-size: 15px;
+}
+
+.has-val.input-form:focus + .focus-input-form::before {   /* Funcionamento para manter o título do campo acima da linha se estiver preenchida */
+    width: 100%;
+}
+
+/* Criação de botão */
+
+.container-login-form-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;   /* Centralização do botão na horizontal */
+}
+
+.login-form-btn {
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: var(--white-color);
+    line-height: 1.2;
+    text-transform: uppercase;    /* LETRA MAIÚSCULA */
+    display: flex;
+    justify-content: center;     /* Centralização do botão na horizontal */
+    align-items: center;         /* Centralização do botão na vertical */
+    padding: 0 20px;
+    width: 100px;
+    height: 50px;
+    background-color: var(--main-color);
+    border-radius: 5px;         /* Arredondar as bordas */
+    transition: all 0.4s;
+}
