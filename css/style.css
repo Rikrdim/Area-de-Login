@@ -170,7 +170,7 @@ button:hover {           /* Quando o cursor do mouse passar por cima do botão, 
     width: 100%;
     height: 52px;             /* Altura da linha' */
     background: transparent;   /* cor de fundo' */
-    padding: 0 5px         /* 0px no topo e embaixo. 5px na direita e na esquerda da linha */
+    padding: 0 5px;         /* 0px no topo e embaixo. 5px na direita e na esquerda da linha */
 }
 
 .focus-input-form {
@@ -235,7 +235,7 @@ button:hover {           /* Quando o cursor do mouse passar por cima do botão, 
     justify-content: center;   /* Centralização do botão na horizontal */
 }
 
-.login-form-btn {
+.login-form-btn {                  /* Adicionar estilo ao botão */
     font-family: Poppins-Medium;
     font-size: 16px;
     color: var(--white-color);
@@ -245,9 +245,60 @@ button:hover {           /* Quando o cursor do mouse passar por cima do botão, 
     justify-content: center;     /* Centralização do botão na horizontal */
     align-items: center;         /* Centralização do botão na vertical */
     padding: 0 20px;
-    width: 100px;
+    width: 100%;
     height: 50px;
     background-color: var(--main-color);
     border-radius: 5px;         /* Arredondar as bordas */
-    transition: all 0.4s;
+    transition: all 0.4s;       /* Animação de mudar de cor ao passar o mouse por cima do botão */
+}
+
+.login-form-btn:hover{
+    background-color: var(--highlight-text) /* Implemento da animação de mudar de cor ao passar o mouse por cima do botão */
+}
+
+
+/* 
+    Links - Login utils ( animação para Esqueceu sua senha e Não tem conta? Criar
+*/
+
+a {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--link-color);
+    margin: 0px;
+    transition: all 0.4s;       /* Animação de mudar de cor ao passar o mouse por cima do botão */
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--highlight-text);
+}
+
+/* Estilo para inserir a bolinha antes do Esqueceu sua senha e Não tem conta? Criar */
+
+.login-utils {
+    margin-top: 20px;
+}
+
+.login-utils li {
+    position: relative;
+    padding-left: 16px;
+}
+
+.login-utils li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--points-list);
+    top: 45%;
+    transform: translateY(-50%);
+    left: 0;
 }
